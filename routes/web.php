@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiswaController;
 use Illuminate\Routing\RouteUrlGenerator;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,25 @@ Route::get('/coba', function () {
     $data =['meja', 'kursi','lampu'];
     return view('table', compact('data'));
  });
+
+Route::get('/button', function () {
+    return view('button');
+});
+
+Route::get('/cards', function () {
+    return view('cards');
+});
+
+Route::get('/charts', function () {
+    return view('charts');
+});
+
+Route::get('/tables', function () {
+    return view('tables');
+});
+
+//pemanggilan manual
+//Route::get('siswa', [SiswaController::class, 'index']);
+//Route::get('siswa', [SiswaController::class, 'create']);
+
+Route::resource('siswa', SiswaController::class);//memangil semua class yg ada dalam SiswaController
