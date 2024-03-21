@@ -12,5 +12,9 @@ class Siswa extends Model
     protected $table = 'siswa';
    // protected $primarykey = 'id_siswa';
     protected $guarded = ['id'];
+    //join table siswa ke table sekolah(many to one relation)
+    function sekolah(){
+        return $this->belongsTo(Sekolah::class);
+    }
 
 }

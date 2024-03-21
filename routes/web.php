@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SiswaController;
 use Illuminate\Routing\RouteUrlGenerator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,4 +68,13 @@ Route::get('/tables', function () {
 //Route::get('siswa', [SiswaController::class, 'index']);
 //Route::get('siswa', [SiswaController::class, 'create']);
 
-Route::resource('siswa', SiswaController::class);//memangil semua class yg ada dalam SiswaController
+//memangil semua class yg ada dalam SiswaController
+Route::resource('siswa', SiswaController::class)->middleware(['auth','admin']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

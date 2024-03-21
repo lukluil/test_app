@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('nis');
             $table->string('nama');
             $table->string('alamat');
+            //membuat foreignkey di tabel siswa
+            $table->foreignId('sekolah_id')->constrained('sekolah')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
